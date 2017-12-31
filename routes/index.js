@@ -21,6 +21,7 @@ router.get('/login', passport.authenticate('auth0', {
   responseType: 'code',
   audience: 'https://' + env.AUTH0_DOMAIN + '/userinfo',
   scope: 'openid profile'}),
+  
   function(req, res) {
     res.redirect("/");
 });

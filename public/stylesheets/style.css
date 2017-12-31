@@ -3,6 +3,18 @@
     text-decoration: none;
 }
 
+main {
+    min-height: 500px;
+    padding: 50px 0px;
+}
+
+footer {
+    padding: 50px 0px;
+    font-size: 14px;
+    color: #BBB;
+    background: #2222;
+    text-align: center;
+}
 
 .flex-container {
     display: flex;
@@ -95,4 +107,38 @@ h3 {
     font-size: 40px
 
 
+}
+
+.hero {
+    background-color: grey;
+    /* background-image: url(../img/Banner1.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 50px, 0px;
+    min-height: 650px;
+    position: relative;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    width: 100%
+}
+
+.hero-content h2 {
+    color: #FFF;
+    font-size: 80px
+}
+
+.hero-content p {
+    color: #FFF;
+    font-size: 80px;
+    margin-bottom: 30px;
+}
+
+.hero-content .btn {
+    border-radius: 5px;
+    padding: 20px 30px;
 }
