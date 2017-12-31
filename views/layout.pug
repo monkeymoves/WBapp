@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    script(src="https://cdn.auth0.com/js/auth0/8.7/auth0.min.js")
+  body
+    nav.w3-bar.w3-border.w3-light-grey( role="navigation" )
+      //- .w3-bar-item.w3-text-grey Wellbeing Impact Assessment
+      a( href="/").w3-bar-item.w3-button Home
+      if loggedIn
+        a( href="/user" ).w3-bar-item.w3-button Profile
+        
+        a( href="/prosperous" ).w3-bar-item.w3-button Prosperous
+        a( href="/resilient" ).w3-bar-item.w3-button Resilient
+        a( href="/healthier" ).w3-bar-item.w3-button Healthier
+        a( href="/equal" ).w3-bar-item.w3-button Equal
+        a( href="/cohesive" ).w3-bar-item.w3-button Cohesive
+        a( href="/vibrant" ).w3-bar-item.w3-button Vibrant
+        a( href="/global" ).w3-bar-item.w3-button Global
+
+
+        a( id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Logout
+      else
+        a( id="qsLoginBtn" href="/login" ).w3-bar-item.w3-button Login
+    main
+      .container
+        block content
+
