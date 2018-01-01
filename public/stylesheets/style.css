@@ -110,14 +110,17 @@ h3 {
 }
 
 .hero {
-    background-color: grey;
-    /* background-image: url(../img/Banner1.jpg); */
+    /* background-color: darkolivegreen; */
+    background-image: url(../img/super.png);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-size: 100%;
+
+    /* background-size: cover; */
+    /* background-position: center center;
     padding: 50px, 0px;
-    min-height: 650px;
-    position: relative;
+    min-height: 650px; */
+    /* position: relative; */
+
 }
 
 .hero-content {

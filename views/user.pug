@@ -1,9 +1,10 @@
 extends layout
 
 block content
-  br
-  .w3-container
-    .w3-card-4.w3-center(style="padding: 15px;")
+  main
+    .jumbotron.text-center
+      .row
+        .col-sm-12
       //- img(src=user.picture)
       p Welcome #{user.nickname}
       p Please create a new project below and complete the 7 wellbeing assessment sections:
