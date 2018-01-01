@@ -1,17 +1,21 @@
 extends layout
 
 block content
-  main(id=colorID)
+
+  .w3-light-grey
+    .w3-container.w3-green.w3-center(style=percentNo ) #{percent} 
+
+  main(id=colorID) 
+    h2#whitetext.text-center #{title} 
     .jumbotron.text-center
       .row
         .col-sm-12
-          h3 #{title}
           p #{content}
           br
           form(action=url, method='POST')
             .form-group
               label Your project name:
-              input(type="text", name='projectName', value=projectName)
+              input.w3-input(type="text", name='projectName', value=projectName)
             .form-group
               label Your projects positive impacts
               textarea.form-control(type='text', rows='10', name='positive')

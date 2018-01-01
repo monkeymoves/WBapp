@@ -63,6 +63,9 @@ router.get('/prosperous', ensureLoggedIn, function(req, res, next) {
   res.render('form', {
     user: req.user,
     colorID:'yellow',
+    percent:'16%',
+    percentNo:"width:16%",
+
     projectName: req.query.projectName,
     url: wellbeingGoals.WBprosperous.url,
     title: wellbeingGoals.WBprosperous.name, 
@@ -103,6 +106,8 @@ router.get('/resilient', ensureLoggedIn, function (req, res) {
   res.render('form', {
     user: req.user,
     colorID:'orange',
+    percent:'30%',
+    percentNo:"width:30%",
 
     projectName: req.query.projectName,
 
@@ -144,7 +149,8 @@ router.get('/healthier', ensureLoggedIn, function (req, res) {
   res.render('form', {
     user: req.user,
     colorID:'red',
-
+    percent:'44%',
+    percentNo:"width:44%",
     projectName: req.query.projectName,
     url: wellbeingGoals.WBhealthier.url,
     title: wellbeingGoals.WBhealthier.name,
@@ -184,7 +190,8 @@ router.get('/equal', ensureLoggedIn, function (req, res) {
   res.render('form', { 
     user: req.user,
     colorID:'darkred',
-
+    percent:'58%',
+    percentNo:"width:58%",
     projectName: req.query.projectName,
     url: wellbeingGoals.WBequal.url,
     title: wellbeingGoals.WBequal.name,
@@ -223,7 +230,8 @@ router.get('/cohesive', ensureLoggedIn, function (req, res) {
   res.render('form', {
     user: req.user,
     colorID:'darkblue',
-
+    percent:'72%',
+    percentNo:"width:72%",
     projectName: req.query.projectName,
     url: wellbeingGoals.WBcohesive.url,
     title: wellbeingGoals.WBcohesive.name,
@@ -263,7 +271,8 @@ router.get('/vibrant', ensureLoggedIn, function (req, res) {
   res.render('form', {
     user: req.user,
     colorID:'blue',
-
+    percent:'86%',
+    percentNo:"width:86%",
     projectName: req.query.projectName,
     url: wellbeingGoals.WBvibrant.url,
     title: wellbeingGoals.WBvibrant.name,
@@ -301,7 +310,8 @@ router.get('/global', ensureLoggedIn, function (req, res) {
   res.render('form', {
     user: req.user,
     colorID:'lightblue',
-
+    percent:'100%',
+    percentNo:"width:100%",
     projectName: req.query.projectName,
     url: wellbeingGoals.WBglobal.url,
     title: wellbeingGoals.WBglobal.name,
