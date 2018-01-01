@@ -4,9 +4,17 @@ block content
   br
   .w3-container
     .w3-card-4.w3-center(style="padding: 15px;")
-      img(src=user.picture)
+      //- img(src=user.picture)
       p Welcome #{user.nickname}
-      h2 User Profile
-  pre #{userProfile}
-   br
-  a(href='/logout') Logout
+      p Please create a new project below and complete the 7 wellbeing assessment sections:
+
+        form(action='/prosperous', method='GET')
+          .form-group
+            label Your project name:
+            input(type="text" name='projectName')
+          .form-group
+            label Project description:
+            textarea.form-control(type='text', rows='10', name='projectInfo')
+        
+          .form-group.text-right
+            button.btn.btn-primary.btn-lg(type='submit') Send

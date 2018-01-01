@@ -62,6 +62,8 @@ var url = 'mongodb://'+process.env.USER+':'+process.env.PASS+'@'+process.env.HOS
 router.get('/prosperous', ensureLoggedIn, function(req, res, next) {
   res.render('form', {
     user: req.user,
+    colorID:'yellow',
+    projectName: req.query.projectName,
     url: wellbeingGoals.WBprosperous.url,
     title: wellbeingGoals.WBprosperous.name, 
     content: wellbeingGoals.WBprosperous.content,
@@ -72,6 +74,7 @@ router.post('/prosperous', ensureLoggedIn, function (req, res) {
 
   var data = {
     user: req.user.displayName,
+    projectName: req.body.projectName,
     projectID: "001", 
     wellbeingCategory: wellbeingGoals.WBprosperous.name,
     positive: req.body.positive, 
@@ -88,7 +91,9 @@ router.post('/prosperous', ensureLoggedIn, function (req, res) {
       client.close();
     });
   });
-  res.send(data);
+  // res.send(data);
+  passData =encodeURIComponent(data.projectName) ;
+  res.redirect("/resilient/?projectName=" + passData)
 });
 
 
@@ -97,6 +102,10 @@ router.post('/prosperous', ensureLoggedIn, function (req, res) {
 router.get('/resilient', ensureLoggedIn, function (req, res) {
   res.render('form', {
     user: req.user,
+    colorID:'orange',
+
+    projectName: req.query.projectName,
+
     url: wellbeingGoals.WBresilient.url,
     title: wellbeingGoals.WBresilient.name,
     content: wellbeingGoals.WBresilient.content
@@ -107,6 +116,7 @@ router.post('/resilient', ensureLoggedIn, function (req, res) {
 
   var data = {
     user: req.user.displayName,
+    projectName: req.body.projectName,
     projectID: "001",
     wellbeingCategory: wellbeingGoals.WBresilient.name,
     positive: req.body.positive, 
@@ -123,13 +133,19 @@ router.post('/resilient', ensureLoggedIn, function (req, res) {
       client.close();
     });
   });
-  res.send(data);
+ // res.send(data);
+ passData =encodeURIComponent(data.projectName) ;
+ res.redirect("/healthier/?projectName=" + passData)
 });
+
 
 
 router.get('/healthier', ensureLoggedIn, function (req, res) {
   res.render('form', {
     user: req.user,
+    colorID:'red',
+
+    projectName: req.query.projectName,
     url: wellbeingGoals.WBhealthier.url,
     title: wellbeingGoals.WBhealthier.name,
     content: wellbeingGoals.WBhealthier.content
@@ -140,6 +156,7 @@ router.post('/healthier', ensureLoggedIn, function (req, res) {
 
   var data = {
     user: req.user.displayName,
+    projectName: req.body.projectName,
     projectID: "001",
     wellbeingCategory: wellbeingGoals.WBhealthier.name,
     positive: req.body.positive, 
@@ -156,7 +173,9 @@ router.post('/healthier', ensureLoggedIn, function (req, res) {
       client.close();
     });
   });
-  res.send(data);
+ // res.send(data);
+ passData =encodeURIComponent(data.projectName) ;
+ res.redirect("/equal/?projectName=" + passData)
 });
 
 
@@ -164,6 +183,9 @@ router.post('/healthier', ensureLoggedIn, function (req, res) {
 router.get('/equal', ensureLoggedIn, function (req, res) {
   res.render('form', { 
     user: req.user,
+    colorID:'darkred',
+
+    projectName: req.query.projectName,
     url: wellbeingGoals.WBequal.url,
     title: wellbeingGoals.WBequal.name,
     content: wellbeingGoals.WBequal.content
@@ -174,6 +196,7 @@ router.post('/equal', ensureLoggedIn, function (req, res) {
 
   var data = {
     user: req.user.displayName,
+    projectName: req.body.projectName,
     projectID: "001",
     wellbeingCategory: wellbeingGoals.WBequal.name,
     positive: req.body.positive, 
@@ -190,13 +213,18 @@ router.post('/equal', ensureLoggedIn, function (req, res) {
       client.close();
     });
   });
-  res.send(data);
+ // res.send(data);
+ passData =encodeURIComponent(data.projectName) ;
+ res.redirect("/cohesive/?projectName=" + passData)
 });
 
 
 router.get('/cohesive', ensureLoggedIn, function (req, res) {
   res.render('form', {
     user: req.user,
+    colorID:'darkblue',
+
+    projectName: req.query.projectName,
     url: wellbeingGoals.WBcohesive.url,
     title: wellbeingGoals.WBcohesive.name,
     content: wellbeingGoals.WBcohesive.content
@@ -207,6 +235,7 @@ router.post('/cohesive', ensureLoggedIn, function (req, res) {
 
   var data = {
     user: req.user.displayName,
+    projectName: req.body.projectName,
     projectID: "001",
     wellbeingCategory: wellbeingGoals.WBcohesive.name,
     positive: req.body.positive, 
@@ -223,13 +252,19 @@ router.post('/cohesive', ensureLoggedIn, function (req, res) {
       client.close();
     });
   });
-  res.send(data);
+ // res.send(data);
+ passData =encodeURIComponent(data.projectName) ;
+ res.redirect("/vibrant/?projectName=" + passData)
 });
+
 
 
 router.get('/vibrant', ensureLoggedIn, function (req, res) {
   res.render('form', {
     user: req.user,
+    colorID:'blue',
+
+    projectName: req.query.projectName,
     url: wellbeingGoals.WBvibrant.url,
     title: wellbeingGoals.WBvibrant.name,
     content: wellbeingGoals.WBvibrant.content
@@ -240,6 +275,7 @@ router.post('/vibrant', ensureLoggedIn, function (req, res) {
 
   var data = {
     user: req.user.displayName,
+    projectName: req.body.projectName,
     projectID: "001",
     wellbeingCategory: wellbeingGoals.WBvibrant.name,
     positive: req.body.positive, 
@@ -256,12 +292,17 @@ router.post('/vibrant', ensureLoggedIn, function (req, res) {
       client.close();
     });
   });
-  res.send(data);
+ // res.send(data);
+ passData =encodeURIComponent(data.projectName) ;
+ res.redirect("/global/?projectName=" + passData)
 });
 
 router.get('/global', ensureLoggedIn, function (req, res) {
   res.render('form', {
     user: req.user,
+    colorID:'lightblue',
+
+    projectName: req.query.projectName,
     url: wellbeingGoals.WBglobal.url,
     title: wellbeingGoals.WBglobal.name,
     content: wellbeingGoals.WBglobal.content
@@ -272,6 +313,7 @@ router.post('/global', ensureLoggedIn, function (req, res) {
 
   var data = {
     user: req.user.displayName,
+    projectName: req.body.projectName,
     projectID: "001",
     wellbeingCategory: wellbeingGoals.WBglobal.name,
     positive: req.body.positive, 
