@@ -51,7 +51,7 @@ router.get('/failure', function(req, res) {
 });
 
 
-/* handle form wellbeing */
+/* handle wellbeing forms & project info*/
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 let wellbeingGoals = require('./wellbeingGoals');
 
@@ -59,13 +59,43 @@ let wellbeingGoals = require('./wellbeingGoals');
 var MongoClient = require('mongodb').MongoClient
 var url = 'mongodb://'+process.env.USER+':'+process.env.PASS+'@'+process.env.HOST+':'+process.env.PORTY+'/'+process.env.DB; 
 
+
+
+
+router.post('/projectSetup', ensureLoggedIn, function (req, res) {
+  var data = {
+    user: req.user.displayName,
+    projectName: req.body.projectName,
+    projectID: "001", 
+    projectInfo: req.body.projectInfo,
+
+  };
+  MongoClient.connect(url, function (err, client) {
+    if (err) throw err;
+    var db = client.db('glitch_db');
+    db.collection("songs").insertOne(data, function (err, res) {
+      if (err) throw err;
+      objectId = data._id;
+      console.log("1 document inserted", objectId);
+      client.close();
+      
+    });
+  });
+  // res.send(data);
+ 
+  // passObjectID =encodeURIComponent(objectId);
+  passData =encodeURIComponent(data.projectName) ;
+  res.redirect("/prosperous/?projectName=" + passData) //+ "&objectId=" + passObjectID)
+});
+
+
 router.get('/prosperous', ensureLoggedIn, function(req, res, next) {
   res.render('form', {
     user: req.user,
     colorID:'yellow',
     percent:'16%',
     percentNo:"width:16%",
-
+    objectId: req.query.passObjectID,
     projectName: req.query.projectName,
     url: wellbeingGoals.WBprosperous.url,
     title: wellbeingGoals.WBprosperous.name, 
@@ -90,7 +120,8 @@ router.post('/prosperous', ensureLoggedIn, function (req, res) {
     var db = client.db('glitch_db');
     db.collection("songs").insertOne(data, function (err, res) {
       if (err) throw err;
-      console.log("1 document inserted");
+      var objectId = data._id;
+      console.log("1 document inserted", objectId);
       client.close();
     });
   });
@@ -341,6 +372,7 @@ router.post('/global', ensureLoggedIn, function (req, res) {
     });
   });
   res.send(data);
+  
 });
 
 

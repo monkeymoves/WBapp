@@ -62,13 +62,13 @@ footer {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: rgb(16, 67, 207);
+    background: grey;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background: #4CAF50;
     cursor: pointer;

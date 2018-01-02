@@ -6,10 +6,10 @@ block content
       .row
         .col-sm-12
       //- img(src=user.picture)
-      p Welcome : #{user.nickname}
+      p Welcome: #{user.nickname}
       p Please create a new project below and complete the 7 wellbeing assessment sections:
 
-        form(action='/prosperous', method='GET')
+        form(action='/projectSetup', method='POST')
           .form-group
             label Your project name:
             input.w3-input(type="text", name='projectName', value=projectName)

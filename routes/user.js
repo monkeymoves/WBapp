@@ -12,10 +12,5 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
   });
 });
 
-router.get('/assessment', ensureLoggedIn, function(req, res, next) {
-  res.render('form', {
-    user: req.user
-  });
-})
 
 module.exports = router;
