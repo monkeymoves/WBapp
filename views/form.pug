@@ -13,6 +13,8 @@ block content
           p #{content}
           br
           form(action=url, method='POST')
+            .form-group.hidden
+              input.w3-input(type="text", name='projectId', value=objectId)
             .form-group
               label Your project name:
               input.w3-input(type="text", name='projectName', value=projectName)
