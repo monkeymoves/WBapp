@@ -8,9 +8,12 @@ block content
         .row
           .col-sm-12
         //- img(src=user.picture)
-        p Welcome: #{user.nickname}
-        p Please create a new project below and complete the 7 wellbeing assessment sections:
-
+        h2.text-center#whitetext
+          strong Welcome To Our Wellbeing Impact Assessment Toolkit:
+          |
+        br  
+        p.text-left Please create a new project below and complete the 7 wellbeing  sections:  #{user.nickname} 
+          br
           form(action='/projectSetup', method='POST')
             .form-group
               label Your project name:
@@ -20,4 +23,4 @@ block content
               textarea.form-control(type='text', rows='10', name='projectInfo')
           
             .form-group.text-right
-              button.btn.btn-primary.btn-lg(type='submit') Send
+              button.btn.btn-primary.btn-lg(type='submit') Start Assessment
