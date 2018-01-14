@@ -1,66 +1,132 @@
 extends layout
 
 block content
+    
+
+
+
   br
   .container
 
-    .w3-light-grey
 
-    main(id=blue) 
-      .jumbotron.text-center
-        .row
-          .col-sm-12
-
-            h3 Wellbeing Impact Assesment Results
-            h4.text-left User Name: #{finaldata.user}
-            h4.text-left Project Name: #{finaldata.projectName}
-            h4.text-left Project Description: #{finaldata.projectInfo}
+    .row.jumbotron
+        .row-eq-height    
+            section.col-sm-12
+                h2.text-center
+                    strong Wellbeing Impact Assesment Results
+                br
+                p.text-left 
+                    strong User Name: 
+                    |   #{finaldata.user}
+                p.text-left 
+                    strong Project Name: 
+                    |   #{finaldata.projectName}
+                p.text-left 
+                    strong Project Description: 
+                    |   #{finaldata.projectInfo}
+            
+        .row-eq-height    
+            section#yellow.text-left.col-sm-6                
+                h2#whitetext.text-center  #{finaldata.prosperous["wellbeingCategory"]}
+                br 
+                p 
+                    strong Positive Project Impacts:
+                    |  #{finaldata.prosperous["positive"]}
+                p 
+                    strong Negative Project Impacts: 
+                    |   #{finaldata.prosperous["negative"]}
+                p 
+                    strong Recommendations & Mitigation:
+                    |    #{finaldata.prosperous["mitigation"]}
         
-            section#yellow.text-left                
-                p#whitetext Wellbeing Category: #{finaldata.prosperous["wellbeingCategory"]}
-                p Positive Project Impacts: #{finaldata.prosperous["positive"]}
-                p Negative Project Impacts: #{finaldata.prosperous["negative"]}
-                p Recommendations & Mitigation: #{finaldata.prosperous["mitigation"]}
-            section#orange.text-left
-                p Wellbeing Category: #{finaldata.resilient["wellbeingCategory"]}
-                p Positive Project Impacts: #{finaldata.resilient["positive"]}
-                p Negative Project Impacts: #{finaldata.resilient["negative"]}
-                p Recommendations & Mitigation: #{finaldata.resilient["mitigation"]}
+            section#orange.text-left.col-sm-6                
+                h2#whitetext.text-center  #{finaldata.resilient["wellbeingCategory"]}
+                br 
+                p 
+                    strong Positive Project Impacts:
+                    |  #{finaldata.resilient["positive"]}
+                p 
+                    strong Negative Project Impacts: 
+                    |   #{finaldata.resilient["negative"]}
+                p 
+                    strong Recommendations & Mitigation:
+                    |    #{finaldata.resilient["mitigation"]}
+            
+        .row-eq-height   
+            section#red.text-left.col-sm-6                
+                h2#whitetext.text-center  #{finaldata.healthier["wellbeingCategory"]}
+                br 
+                p 
+                    strong Positive Project Impacts:
+                    |  #{finaldata.healthier["positive"]}
+                p 
+                    strong Negative Project Impacts: 
+                    |   #{finaldata.healthier["negative"]}
+                p 
+                    strong Recommendations & Mitigation:
+                    |    #{finaldata.healthier["mitigation"]}
 
-            section#red.text-left
-                p Wellbeing Category: #{finaldata.healthier["wellbeingCategory"]}
-                p Positive Project Impacts: #{finaldata.healthier["positive"]}
-                p Negative Project Impacts: #{finaldata.healthier["negative"]}
-                p Recommendations & Mitigation: #{finaldata.healthier["mitigation"]}
-            section#darkred.text-left
-                p Wellbeing Category: #{finaldata.equal["wellbeingCategory"]}
-                p Positive Project Impacts: #{finaldata.equal["positive"]}
-                p Negative Project Impacts: #{finaldata.equal["negative"]}
-                p Recommendations & Mitigation: #{finaldata.equal["mitigation"]}   
-            section#darkblue.text-left
-                p Wellbeing Category: #{finaldata.cohesive["wellbeingCategory"]}
-                p Positive Project Impacts: #{finaldata.cohesive["positive"]}
-                p Negative Project Impacts: #{finaldata.cohesive["negative"]}
-                p Recommendations & Mitigation: #{finaldata.cohesive["mitigation"]}
+            section#darkred.text-left.col-sm-6                
+                h2#whitetext.text-center  #{finaldata.equal["wellbeingCategory"]}
+                br 
+                p 
+                    strong Positive Project Impacts:
+                    |  #{finaldata.equal["positive"]}
+                p 
+                    strong Negative Project Impacts: 
+                    |   #{finaldata.equal["negative"]}
+                p 
+                    strong Recommendations & Mitigation:
+                    |    #{finaldata.equal["mitigation"]}  
 
-            section#blue.text-left
-                p Wellbeing Category: #{finaldata.vibrant["wellbeingCategory"]}
-                p Positive Project Impacts: #{finaldata.vibrant["positive"]}
-                p Negative Project Impacts: #{finaldata.vibrant["negative"]}
-                p Recommendations & Mitigation: #{finaldata.vibrant["mitigation"]}
-            section#lightblue.text-left
-                p Wellbeing Category: #{finaldata.global["wellbeingCategory"]}
-                p Positive Project Impacts: #{finaldata.global["positive"]}
-                p Negative Project Impacts: #{finaldata.global["negative"]}
-                p Recommendations & Mitigation: #{finaldata.global["mitigation"]}  
+        .row-eq-height 
+            section#darkblue.text-left.col-sm-6                
+                h2#whitetext.text-center  #{finaldata.cohesive["wellbeingCategory"]}
+                br 
+                p 
+                    strong Positive Project Impacts:
+                    |  #{finaldata.cohesive["positive"]}
+                p 
+                    strong Negative Project Impacts: 
+                    |   #{finaldata.cohesive["negative"]}
+                p 
+                    strong Recommendations & Mitigation:
+                    |    #{finaldata.cohesive["mitigation"]}  
+
+            section#blue.text-left.col-sm-6                
+                h2#whitetext.text-center  #{finaldata.vibrant["wellbeingCategory"]}
+                br 
+                p 
+                    strong Positive Project Impacts:
+                    |  #{finaldata.vibrant["positive"]}
+                p 
+                    strong Negative Project Impacts: 
+                    |   #{finaldata.vibrant["negative"]}
+                p 
+                    strong Recommendations & Mitigation:
+                    |    #{finaldata.vibrant["mitigation"]} 
+
+        .row-eq-height 
+            section#lightblue.text-left.col-sm-6                
+                h2#whitetext.text-center  #{finaldata.global["wellbeingCategory"]}
+                br 
+                p 
+                    strong Positive Project Impacts:
+                    |  #{finaldata.global["positive"]}
+                p 
+                    strong Negative Project Impacts: 
+                    |   #{finaldata.global["negative"]}
+                p 
+                    strong Recommendations & Mitigation:
+                    |    #{finaldata.global["mitigation"]}   
+            
                 
-           
+             
+            .chart-container.col-sm-6.center-block(style='position: relative; height:15vh; width:30vw')
+                br
+                canvas#myChart(width='400', height='400')
 
-           
-
-            input#radarData(type='hidden', value=radarArray)
-
-            canvas#myChart(width='400', height='400')
+                    input#radarData(type='hidden', value=radarArray)
             script.
                 var b = JSON.parse(document.getElementById("radarData").value);
                 var jsonArraytoString = $.map(b,function(el) { return el })
