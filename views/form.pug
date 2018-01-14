@@ -1,35 +1,37 @@
 extends layout
 
 block content
+  br
+  .container
 
-  .w3-light-grey
-    .w3-container.w3-green.w3-center(style=percentNo ) #{percent} 
+    .w3-light-grey
+      .w3-container.w3-green.w3-center(style=percentNo ) #{percent} 
 
-  main(id=colorID) 
-    h2#whitetext.text-center #{title} 
-    .jumbotron.text-center
-      .row
-        .col-sm-12
-          p #{content}
-          br
-          form(action=url, method='POST')
-            .form-group.hidden
-              input.w3-input(type="text", name='projectId', value=objectId)
-            .form-group
-              label Your project name:
-              input.w3-input(type="text", name='projectName', value=projectName)
-            .form-group
-              label Your projects positive impacts
-              textarea.form-control(type='text', rows='10', name='positive')
-            .form-group
-              label Your projects negative impacts
-              textarea.form-control(type='text', rows='10', name='negative')
-            .form-group
-              label Your projects Mitigation & Recommendations
-              textarea.form-control(type='text', rows='10', name='mitigation')
-            .form-group.slidecontainer
-              label Rank relative importance (1-5)
-              input.slider(type='range', name='rank', min='0', max='5')
-            .form-group.text-right
-              button.btn.btn-primary.btn-lg(type='submit') Send
+    main(id=colorID) 
+      h2#whitetext.text-center #{title} 
+      .jumbotron.text-center
+        .row
+          .col-sm-12
+            p #{content}
+            br
+            form(action=url, method='POST')
+              .form-group.hidden
+                input.w3-input(type="text", name='projectId', value=objectId)
+              .form-group
+                label Your project name:
+                input.w3-input(type="text", name='projectName', value=projectName)
+              .form-group
+                label Your projects positive impacts
+                textarea.form-control(type='text', rows='10', name='positive')
+              .form-group
+                label Your projects negative impacts
+                textarea.form-control(type='text', rows='10', name='negative')
+              .form-group
+                label Your projects Mitigation & Recommendations
+                textarea.form-control(type='text', rows='10', name='mitigation')
+              .form-group.slidecontainer
+                label Rank relative importance (1-5)
+                input.slider(type='range', name='rank', min='0', max='5')
+              .form-group.text-right
+                button.btn.btn-primary.btn-lg(type='submit') Send
   

@@ -125,7 +125,7 @@ router.post('/prosperous', ensureLoggedIn, function (req, res) {
 router.get('/resilient', ensureLoggedIn, function(req, res, next) {
   res.render('form', {
     user: req.user,
-    colorID:'yellow',
+    colorID:'orange',
     percent:'30%',
     percentNo:"width:30%",
     objectId: req.query.passObjectID,
@@ -162,7 +162,7 @@ router.post('/resilient', ensureLoggedIn, function (req, res) {
 router.get('/healthier', ensureLoggedIn, function(req, res, next) {
   res.render('form', {
     user: req.user,
-    colorID:'yellow',
+    colorID:'red',
     percent:'44%',
     percentNo:"width:44%",
     objectId: req.query.passObjectID,
@@ -200,7 +200,7 @@ router.post('/healthier', ensureLoggedIn, function (req, res) {
 router.get('/equal', ensureLoggedIn, function(req, res, next) {
   res.render('form', {
     user: req.user,
-    colorID:'yellow',
+    colorID:'darkred',
     percent:'58%',
     percentNo:"width:58%",
     objectId: req.query.passObjectID,
@@ -238,7 +238,7 @@ router.post('/equal', ensureLoggedIn, function (req, res) {
 router.get('/cohesive', ensureLoggedIn, function(req, res, next) {
   res.render('form', {
     user: req.user,
-    colorID:'yellow',
+    colorID:'darkblue',
     percent:'72%',
     percentNo:"width:72%",
     objectId: req.query.passObjectID,
@@ -276,7 +276,7 @@ router.post('/cohesive', ensureLoggedIn, function (req, res) {
 router.get('/vibrant', ensureLoggedIn, function(req, res, next) {
   res.render('form', {
     user: req.user,
-    colorID:'yellow',
+    colorID:'blue',
     percent:'86%',
     percentNo:"width:86%",
     objectId: req.query.passObjectID,
@@ -314,7 +314,7 @@ router.post('/vibrant', ensureLoggedIn, function (req, res) {
 router.get('/global', ensureLoggedIn, function(req, res, next) {
   res.render('form', {
     user: req.user,
-    colorID:'yellow',
+    colorID:'lightblue',
     percent:'100%',
     percentNo:"width:100%",
     objectId: req.query.passObjectID,
@@ -348,10 +348,28 @@ router.post('/global', ensureLoggedIn, function (req, res) {
 
 
 router.get('/finaldata', ensureLoggedIn, function (req, res) {
+  var id = req.query.passObjectID;
+  MongoClient.connect(url, function (err, client) { 
+    if (err) throw err;
+    var db = client.db('glitch_db');
+      db.collection("songs").findOne({_id: new ObjectId(id)}, function(err, finaldata){
+        if (err) throw err;
+        console.log(finaldata);
 
+        let radarArray = { pRank: finaldata.prosperous["rank"], Rrank: finaldata.resilient["rank"], hRank: finaldata.healthier["rank"], eRank: finaldata.equal["rank"],
+        cRank: finaldata.cohesive["rank"], vRank: finaldata.vibrant["rank"], gRank: finaldata.global["rank"] }; 
 
-  res.render('final')
+        res.render("final", {finaldata : finaldata, radarArray: radarArray})
+        
+        });
+  });          
 });
 
+
+
+
+
+
+  
 
 module.exports = router;

@@ -10,6 +10,8 @@ html
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
     script(src="https://cdn.auth0.com/js/auth0/8.7/auth0.min.js")
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js')
+
   body
     nav.w3-bar.w3-border.w3-light-grey( role="navigation" )
       //- .w3-bar-item.w3-text-grey Wellbeing Impact Assessment
@@ -29,8 +31,6 @@ html
         a( id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Logout
       else
         a( id="qsLoginBtn" href="/login" ).w3-bar-item.w3-button Login
-  .hero
-    main
-      .container
-        block content
+
+  block content
 

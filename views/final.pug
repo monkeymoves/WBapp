@@ -1,16 +1,106 @@
 extends layout
 
-
 block content
+  br
+  .container
 
-    h1 hello00
-    h2 #{passName}
-    h2 #{passUser}
-   
-    //- table
-    //-   tr Wb1
-    //-   | {{finaldata.projectName}}
-    //-   tr wb2
-    //-   | {{finaldata.projectId}}
-    //-   tr wb3
-    //-   | {{finaldata.user}}
+    .w3-light-grey
+
+    main(id=blue) 
+      .jumbotron.text-center
+        .row
+          .col-sm-12
+
+            h3 Wellbeing Impact Assesment Results
+            h4.text-left User Name: #{finaldata.user}
+            h4.text-left Project Name: #{finaldata.projectName}
+            h4.text-left Project Description: #{finaldata.projectInfo}
+        
+            section#yellow.text-left                
+                p#whitetext Wellbeing Category: #{finaldata.prosperous["wellbeingCategory"]}
+                p Positive Project Impacts: #{finaldata.prosperous["positive"]}
+                p Negative Project Impacts: #{finaldata.prosperous["negative"]}
+                p Recommendations & Mitigation: #{finaldata.prosperous["mitigation"]}
+            section#orange.text-left
+                p Wellbeing Category: #{finaldata.resilient["wellbeingCategory"]}
+                p Positive Project Impacts: #{finaldata.resilient["positive"]}
+                p Negative Project Impacts: #{finaldata.resilient["negative"]}
+                p Recommendations & Mitigation: #{finaldata.resilient["mitigation"]}
+
+            section#red.text-left
+                p Wellbeing Category: #{finaldata.healthier["wellbeingCategory"]}
+                p Positive Project Impacts: #{finaldata.healthier["positive"]}
+                p Negative Project Impacts: #{finaldata.healthier["negative"]}
+                p Recommendations & Mitigation: #{finaldata.healthier["mitigation"]}
+            section#darkred.text-left
+                p Wellbeing Category: #{finaldata.equal["wellbeingCategory"]}
+                p Positive Project Impacts: #{finaldata.equal["positive"]}
+                p Negative Project Impacts: #{finaldata.equal["negative"]}
+                p Recommendations & Mitigation: #{finaldata.equal["mitigation"]}   
+            section#darkblue.text-left
+                p Wellbeing Category: #{finaldata.cohesive["wellbeingCategory"]}
+                p Positive Project Impacts: #{finaldata.cohesive["positive"]}
+                p Negative Project Impacts: #{finaldata.cohesive["negative"]}
+                p Recommendations & Mitigation: #{finaldata.cohesive["mitigation"]}
+
+            section#blue.text-left
+                p Wellbeing Category: #{finaldata.vibrant["wellbeingCategory"]}
+                p Positive Project Impacts: #{finaldata.vibrant["positive"]}
+                p Negative Project Impacts: #{finaldata.vibrant["negative"]}
+                p Recommendations & Mitigation: #{finaldata.vibrant["mitigation"]}
+            section#lightblue.text-left
+                p Wellbeing Category: #{finaldata.global["wellbeingCategory"]}
+                p Positive Project Impacts: #{finaldata.global["positive"]}
+                p Negative Project Impacts: #{finaldata.global["negative"]}
+                p Recommendations & Mitigation: #{finaldata.global["mitigation"]}  
+                
+           
+
+           
+
+            input#radarData(type='hidden', value=radarArray)
+
+            canvas#myChart(width='400', height='400')
+            script.
+                var b = JSON.parse(document.getElementById("radarData").value);
+                var jsonArraytoString = $.map(b,function(el) { return el })
+                var RadArrayInt = jsonArraytoString.map(Number)
+                console.log(RadArrayInt)
+
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                labels: ["Prosperous", "Resilient", "Healthier", "Equal", "Cohesive", "Vibrant", "Global"],
+                datasets: [{
+                label: "Wellbeing Ranking",
+                
+                backgroundColor: 'rgb(38, 102, 239)',
+                borderColor:  'rgb(38, 102, 239)',
+
+                data: RadArrayInt,
+                }]
+                },
+                options: {
+
+                    scale: {
+                        ticks: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 5,
+                        stepSize: 1
+                        },
+                        pointLabels: {
+                        fontSize: 18
+                        }
+                    },
+                    legend: {
+                        position: 'bottom'
+                        
+                    }
+
+
+                }
+                });
+
+

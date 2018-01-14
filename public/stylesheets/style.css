@@ -75,27 +75,27 @@ footer {
 }
 
 #yellow {
-    background-color: rgb(228, 228, 3);
+    background-color: rgba(214, 214, 91, 0.767);
 }
 
 #orange {
-    background-color: orange;
+    background-color: rgba(211, 166, 81, 0.767);
 }
 
 #red {
-    background-color: red;
+    background-color: rgba(184, 54, 54, 0.74);
 }
 
 #darkred   {
- background-color: orangered;
+ background-color: rgba(177, 118, 118, 0.801);
 }
 
 #darkblue {
-    background-color: darkblue;
+    background-color:  rgb(98, 115, 209);
 }
 
 #blue {
-    background-color: blue;
+    background-color: rgb(179, 173, 230);
 }
 
 #lightblue {
@@ -160,3 +160,10 @@ label {
 
 
 }
+
+.results     {
+        text-align: left;
+        float: left;
+    
+    
+    }

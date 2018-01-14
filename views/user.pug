@@ -1,21 +1,23 @@
 extends layout
 
 block content
-  main
-    .jumbotron.text-center
-      .row
-        .col-sm-12
-      //- img(src=user.picture)
-      p Welcome: #{user.nickname}
-      p Please create a new project below and complete the 7 wellbeing assessment sections:
+  .container
 
-        form(action='/projectSetup', method='POST')
-          .form-group
-            label Your project name:
-            input.w3-input(type="text", name='projectName', value=projectName)
-          .form-group
-            label Project description:
-            textarea.form-control(type='text', rows='10', name='projectInfo')
-        
-          .form-group.text-right
-            button.btn.btn-primary.btn-lg(type='submit') Send
+    main
+      .jumbotron.text-center
+        .row
+          .col-sm-12
+        //- img(src=user.picture)
+        p Welcome: #{user.nickname}
+        p Please create a new project below and complete the 7 wellbeing assessment sections:
+
+          form(action='/projectSetup', method='POST')
+            .form-group
+              label Your project name:
+              input.w3-input(type="text", name='projectName', value=projectName)
+            .form-group
+              label Project description:
+              textarea.form-control(type='text', rows='10', name='projectInfo')
+          
+            .form-group.text-right
+              button.btn.btn-primary.btn-lg(type='submit') Send
